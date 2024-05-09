@@ -100,7 +100,7 @@ const ensureUploadFolderExists = (dir) => {
       const queryResult = await pool.query('SELECT id, file_name, file_path, mime_type, size, created_at, updated_at FROM resumes');
       const resumes = queryResult.rows.map(resume => ({
         ...resume,
-        url: `http://localhost:5000/resumes/${resume.file_name}` // Assuming file_name stores the actual file's name on disk
+        url: `https://outreach-bot-e8521e90ac6b.herokuapp.com/resumes/${resume.file_name}` // Assuming file_name stores the actual file's name on disk
       }));
       
       res.json(resumes);
